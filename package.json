@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/RatanNarayanHegde/notesBackend/issues"
   },
-  "homepage": "https://github.com/RatanNarayanHegde/notesBackend#readme"
+  "homepage": "https://github.com/RatanNarayanHegde/notesBackend#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
