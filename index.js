@@ -1,7 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const { json } = require("express/lib/response");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const Note = require("./models/note");
 
 app.use(cors());
 app.use(express.json());
@@ -48,7 +51,9 @@ app.get("/", (request, response) => {
 });
 
 app.get("/api/notes", (request, response) => {
-  response.json(notes);
+  Note.find({}).then((notes) => {
+    response.json(notes);
+  });
 });
 
 app.get("/api/notes/:id", (request, response) => {
