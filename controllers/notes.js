@@ -41,11 +41,10 @@ notesRouter.put("/:id", (request, response, next) => {
     important: body.important,
   };
 
-  Note.findByIdAndUpdate(request.params.id, note, { new: true })
-    .then((updatedNote) => {
-      response.json(updatedNote);
-    })
-    .catch((error) => next(error));
+  const updatedNote = Note.findByIdAndUpdate(request.params.id, note, {
+    new: true,
+  });
+  response.status(200).json(updatedNote);
 });
 
 module.exports = notesRouter;
